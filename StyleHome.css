@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: #FFEEE3;
+}
+#div-herder-img{
+    background-image: url(./Photo/image-header\ 1.png);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-bottom: 70px;
+}
+#div-herder-img h1{
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 30px;
+}
+#section-about{
+    background-color: #FFEEE3;
+} 
+#section-about h2{
+    margin-top: 45px;
+    text-align: center;
+    font-weight: bold;
+}
+#section-about p{
+    font-size: 30px;
+    margin: 50px 150px 50px 150px;
+}
+#visit-rooms{
+    margin: 70px 0px;
+    background-image: url(./Photo/visit\ rooms\ 1.png);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+}
+#visit-rooms h1{
+    color: white;
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#visit-rooms div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#visit-rooms #button-visit-rooms{
+    position: absolute;
+    padding: 15px;
+    font-size: 30px;
+    border-radius: 10px;
+    /* bottom:10px ; */
+    width: 400px;
+}
+.galleri img{
+    width: 30%;
+}
+
