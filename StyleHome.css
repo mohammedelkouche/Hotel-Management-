@@ -3,7 +3,10 @@
     padding: 0;
 }
 .navbar{
-    background-color: #FFEEE3;
+    background-color: #FFEEE3 !important;
+}
+.navbar-brand img{
+    width: 50%;
 }
 #div-herder-img{
     background-image: url(./Photo/image-header\ 1.png);
@@ -21,7 +24,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin: 0 30px;
+    /* margin: 0 30px; */
+    text-align: center;
 }
 #section-about{
     background-color: #FFEEE3;
@@ -33,7 +37,7 @@
 }
 #section-about p{
     font-size: 30px;
-    margin: 50px 150px 50px 150px;
+    margin: 40px 150px 40px 150px;
 }
 #visit-rooms{
     margin: 70px 0px;
@@ -42,14 +46,15 @@
     width: 100%;
     height: 100vh;
     position: relative;
-
 }
 #visit-rooms h1{
     color: white;
     position: absolute;
+    font-size: 55px;
     top: 140px;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 #visit-rooms div{
     position: absolute;
@@ -57,15 +62,75 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#visit-rooms #button-visit-rooms{
+#button-visit-rooms{
     position: absolute;
     padding: 15px;
-    font-size: 30px;
+    font-size: 35px;
+    font-weight: bold;
     border-radius: 10px;
-    /* bottom:10px ; */
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-141%, 70%);
     width: 400px;
+    background-color: transparent;
+    border: solid;
+    border-color: white ;
+}
+#section-garden{
+    background-color: #FFEEE3;
+    padding: 40px;
+}
+#section-garden h2{
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+#section-garden p{
+    font-size: 30px;
+    margin: 0px 35px 30px 35px;
+}
+.galleri{
+    width: 100%;
+    /* display: flex;
+    justify-content: space-around; */
+}
+.galleri div{
+    width: 30%;
 }
 .galleri img{
-    width: 30%;
+    width: 100%;
+    height: 300px;
+}
+#section-background{
+    background-image: url(./Photo/image\ background.png);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    /* height: 700px; */
+    margin: 70px 0px;
+    position: relative;
+}
+#section-background h1{
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 55px;
+    text-align: center;
+}
+#foooter{
+    background-color: #FFEEE3;
+}
+#foooter img{
+    display: block;
+        margin: 40px 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#copyright{
+    background-color: #ECCAB5;
 }
 
