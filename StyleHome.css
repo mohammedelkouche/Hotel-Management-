@@ -6,18 +6,18 @@
     background-color: #FFEEE3 !important;
 }
 .navbar-brand img{
-    width: 50%;
+    width: 40%;
 }
-#div-herder-img{
+#div-header-img{
     background-image: url(./Photo/image-header\ 1.png);
     background-size: cover;
     width: 100%;
     height: 100vh;
     position: relative;
-    margin-bottom: 70px;
+    margin-bottom: 45px;
 }
-#div-herder-img h1{
-    font-size: 80px;
+#div-header-img h1{ 
+    font-size: 60px;
     font-weight: bold;
     color: white;
     position: absolute;
@@ -34,13 +34,17 @@
     margin-top: 45px;
     text-align: center;
     font-weight: bold;
+    font-family: 45px;
 }
 #section-about p{
-    font-size: 30px;
-    margin: 40px 150px 40px 150px;
+    font-size: 24px;
+    margin: 40px 100px 20px 100px;
+}
+#About-img img{
+    width: 600px;
 }
 #visit-rooms{
-    margin: 70px 0px;
+    margin: 45px 0px;
     background-image: url(./Photo/visit\ rooms\ 1.png);
     background-size: cover;
     width: 100%;
@@ -50,7 +54,7 @@
 #visit-rooms h1{
     color: white;
     position: absolute;
-    font-size: 55px;
+    font-size: 45px;
     top: 140px;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -64,15 +68,15 @@
 }
 #button-visit-rooms{
     position: absolute;
-    padding: 15px;
-    font-size: 35px;
+    padding: 10px;
+    font-size: 30px;
     font-weight: bold;
     border-radius: 10px;
     color: white;
     top: 50%;
     left: 50%;
     transform: translate(-141%, 70%);
-    width: 400px;
+    width: 310px;
     background-color: transparent;
     border: solid;
     border-color: white ;
@@ -84,10 +88,11 @@
 #section-garden h2{
     text-align: center;
     font-weight: bold;
+    font-family: 45px;
     margin: 20px 0px;
 }
 #section-garden p{
-    font-size: 30px;
+    font-size: 24px;
     margin: 0px 35px 30px 35px;
 }
 .galleri{
@@ -108,7 +113,7 @@
     width: 100%;
     height: 100vh;
     /* height: 700px; */
-    margin: 70px 0px;
+    margin: 45px 0px;
     position: relative;
 }
 #section-background h1{
@@ -117,32 +122,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 55px;
+    font-size: 50px;
     text-align: center;
-}
-#foooter{
-    background-color: #FFEEE3;
-}
-#padding-footer{
-    padding: 30px;
-}
-#foooter img{
-    display: block;
-    margin: 40px 0px;
-    margin-left: auto;
-    margin-right: auto;
-}
-#foooter a{
-    text-decoration: none;
-}
-#foooter p{
-    font-size: 25px;
-    text-align: center;
-    margin: 40px 0px;
-}
-#copyright{
-    background-color: #ECCAB5;
-    padding: 5px;
-    text-align: center;
-    font-size: 20px;
 }

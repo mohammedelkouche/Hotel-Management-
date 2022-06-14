@@ -4,38 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="StyleHome.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="StyleNav.css">
+    <link rel="stylesheet" href="StyleFooter.css">
+    <title>BOOKER</title>
 </head>
 <body>
-    <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <div class="container-fluid  d-flex justify-content-around">
-                <a class="navbar-brand" href="#"><img src="./Photo/Logo.png" alt=""></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <!-- <ul class="navbar-nav">
-                        <li class="nav-item"> -->
-                            <a class="nav-link" href="#">Home</a>
-                        <!-- </li>
-                        <li class="nav-item"> -->
-                            <a class="nav-link" href="#">Book Now</a>
-                        <!-- </li>
-                        <li class="nav-item"> -->
-                            <a class="nav-link" href="#">Contact</a>
-                        <!-- </li> 
-                    </ul> -->
-                </div>
-            </div>
-        </nav>
+    <!-- Navbar -->   
+    <?php 
+        include('Nav.php');
+    ?> 
     <!-- main -->
         <main>
-            <div id="div-herder-img">
+            <div id="div-header-img">
                 <h1>Where the world comes to stay</h1>
             </div>
             <section id="section-about">
@@ -93,20 +77,9 @@
                     to everyone’s delight – and especially the kids!</h1>
             </section>            
         </main>
-    <!-- footer -->    
-        <footer id="foooter">
-            <div id="padding-footer">
-                <img src="./Photo/Logo.png" alt="">
-                <div class="d-flex justify-content-evenly">
-                    <div><a href="">Book Now</a></div>
-                    <div><a href="">Home</a></div>
-                    <div><a href="">Contact</a></div>
-                </div>
-                <p>Propriété SALAH 7 ABYAD, Municipalité Ennakhil, Marrakech - Maroc|Tél : +212 524 298 600|contact@booker.com</p>
-            </div>
-            <div id="copyright">
-                <span>Ⓒ 2022 All rights reserved BOOKER</span>
-            </div>
-        </footer>
+    <!-- Footer -->
+    <?php 
+        include('Footer.php');
+    ?>
 </body>
 </html>
