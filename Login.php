@@ -2,9 +2,11 @@
     include 'Connection.php' ;
     error_reporting(0) ;
     session_start() ;
+    if (isset($_POST["LOGOUT"])) {
+        session_destroy();
+    }
     // Registre Form
     if (isset($_POST["REGISTER"])){
-
             $FirstName = $_POST['FirstName'];
             $LastName = $_POST['LastName'];
             $Adress = $_POST['Adress'];
@@ -26,31 +28,34 @@
                 $_POST['Password'] = "";
                 $PhonNumber = "";
                 }else{
-                echo " <script>alert('Woops! Something Wrong Went.')</script>" ;
-
+                    echo " <script>alert('Woops! Something Wrong Went.')</script>" ;
                 }
             }else{
                 echo " <script>alert('Woops! Email Already Exists .')</script>" ;
-
-               
             }
     }
     // LOGIN Form
     if (isset($_POST["submit"])){
+
         $Email = $_POST['Email'];
         $Password = $_POST['Password'];
         $sql = "SELECT * FROM client WHERE Email = '$Email' AND Password ='$Password' " ;
         $result = $conn->query($sql);
         if($result->num_rows > 0){
             $row = $result->fetch_assoc() ;
-            $_SESSION['FirstName'] = $row['FirstNameq'] ;
-            header("Location: Home.php") ;
+            $_SESSION['FirstName'] = $row['FirstName'] ;
+            // header("Location: Home.php") ;
+            echo " <script>alert('Woops! YOU ARE CONNECT NOW .')</script>" ;
         }else{
-            echo " <script>alert('Woops! Email or Password is Wrong.')</script>" ;
+            echo " <script>alert('Woops! Email or Password is Wrong.')</script>"; 
         }
     }
-
-
+    // if (isset($_POST["LOGOUT"])){
+    //     if(isset($_SESSION['id'])){
+    //         unset($_SESSION['id']) ;
+    //         print_r($_SESSION['FirstName']);
+    //     }
+    // }
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,12 +78,21 @@
     ?>
     <div class="row ">
         <div id="div-formlogin" class="col-sm-12 col-md-12 col-lg-6">
-            <form action="" method = "POST">
+            <form action="" method="POST">
                 <h2>ALREADY A MEMBER</h2>
                 <fieldset>
-                    <div><input type="email" name = "Email" placeholder = "Email" value="<?php echo $Email ;?>" required></div>
-                    <div><input type="password" name = "Fassword" placeholder = "password" value="<?php echo $_POST['Password'] ;?>" required></div>
-                    <div> <input type="submit" name = "submit" value = "LOGIN" ></div>
+                    <div><input type="email" name = "Email" placeholder = "Email" " required></div>
+                    <div><input type="password" name = "Password" placeholder = "password"  required></div>
+                    <div>
+                        <!-- <input type="submit" name = "submit" value = "LOGIN" > -->
+                        <?php if(isset($_SESSION['id'])){ echo'
+                                 <input type="submit" name = "LOGOUT" value = "LOGOUT" > ';
+                           }else{ echo'
+                                <input type="submit" name = "submit" value = "LOGIN" >'
+                        ; } ?>
+                    </div>
+                    <!-- <a class="link" href="login.php" style="text-decoration:none">login</a> -->
+
                 </fieldset>
             </form>    
         </div>
@@ -86,12 +100,12 @@
             <form action="" method = "POST">
                 <h2> I don't have an account</h2>
                 <fieldset>
-                    <div><input type="text" name = "FirstName" placeholder = "First Name" value="<?php echo $FirstName ;?>" required></div>
-                    <div><input type="text" name = "LastName" placeholder = "Last Name" value="<?php echo $LastName ;?>" required></div>
-                    <div><input type="text" name = "Adress" placeholder = "Adress" value="<?php echo $Adress ;?>" required></div>
-                    <div><input type="email" name = "Email" placeholder = "Email" value="<?php echo $Email ;?>" required></div>
-                    <div><input type="password" name = "Password" placeholder = "Password" value="<?php echo $_POST['Password'] ;?>" required></div>
-                    <div><input type="text" name = "PhonNumber" placeholder = "Phon Number" value="<?php echo $PhonNumber ;?>" required></div>
+                    <div><input type="text" name = "FirstName" placeholder = "First Name"  required></div>
+                    <div><input type="text" name = "LastName" placeholder = "Last Name"  required></div>
+                    <div><input type="text" name = "Adress" placeholder = "Adress"  required></div>
+                    <div><input type="email" name = "Email" placeholder = "Email"  required></div>
+                    <div><input type="password" name = "Password" placeholder = "Password"   required></div>
+                    <div><input type="text" name = "PhonNumber" placeholder = "Phon Number"  required></div>
                     <div><input type="submit" name = "REGISTER" value = "REGISTER"></div>
                 </fieldset>    
             </form>

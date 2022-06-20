@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="StyleHome.css">
     <link rel="stylesheet" href="StyleNav.css">
     <link rel="stylesheet" href="StyleFooter.css">
-    <link rel="stylesheet" href="StyleBookNow.css">
     <title>BOOKER</title>
 </head>
 <body>
@@ -24,12 +23,8 @@
             include('Nav.php');
     ?>
     <div id="div-header-img">
-        <h1>Where the world comes to stay</h1>
-    </div>
-    <div class="d-flex justify-content-evenly check">
-        <div class="check-All"><span>Check-in<i class="fa-solid fa-calendar-days"></i></span></div>
-        <div class="check-All"><span>Check-out<i class="fa-solid fa-calendar-days"></i></span></div>
-        <div class="check-All"><button>Sherch</button></div>
+        <img src="Photo/Room/<?php echo $row ['MainImg'] ?>" class="card-img-top" alt="">
+        <!-- <h1>Where the world comes to stay</h1> -->
     </div>
     <section id="section">
         <div class="row">
@@ -43,7 +38,7 @@
                     <div class="card-body">
                         <h3 class="card-title"><?php echo $row ['Label'] ?></h3>
                         <p class="card-text"><?php echo $row ['Description'] ?></p>
-                        <div class="card-button"><a href="DetailRoom.php?id=<?php echo $row["IdRoom"] ?>" class="btn ">CHECK RATES</a></div>
+                        <div class="card-button"><a href="#" class="btn ">CHECK RATES</a></div>
                     </div>
                 </div>
             </div>
