@@ -1,6 +1,8 @@
 <?php
-    include('connction.php');
-    
+    include('Connection.php');
+    $sql = "SELECT room.Label , room.Description , photo.MainImg
+    FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom" ;
+    $result = $conn->query($sql) ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +32,28 @@
         <div class="check-All"><button>Sherch</button></div>
     </div>
     <section id="section">
-        <div>
+        <div class="row">
+        <?php  
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+        ?>
+            <div class="col-sm-12 col-md-6 col-lg-4 imgcard">
+                <div class="card" style="width: 22rem; height: 30rem;">
+                    <img src="Photo/Room/<?php echo $row ['MainImg'] ?>" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h3 class="card-title"><?php echo $row ['Label'] ?></h3>
+                        <p class="card-text"><?php echo $row ['Description'] ?></p>
+                        <div class="card-button"><a href="#" class="btn ">CHECK RATES</a></div>
+                        
+                    </div>
+                </div>
+            </div>
+        <?php  
 
+                }
+            }
+        ?>
+            
         </div>
     </section>
     <?php 

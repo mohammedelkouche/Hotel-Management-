@@ -1,3 +1,6 @@
+<?php 
+    session_start() ;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +24,10 @@
         <main>
             <div id="div-header-img">
                 <h1>Where the world comes to stay</h1>
+                <?php echo"<h1> welcom". $_SESSION['FirstName'] ."</h1>";
+                        // print_r($_SESSION['FirstName']);
+                        var_dump($_SESSION['FirstName']);
+                  ?>
             </div>
             <section id="section-about">
                 <div class="d-flex">
