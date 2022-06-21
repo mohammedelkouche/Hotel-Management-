@@ -28,10 +28,10 @@ h3{
     text-align: center;
 }
 .card-button{
-    position: absolute;
+    /* position: absolute;
     bottom: 0px;
     text-align: center;
-    transform: translate(77%, -50%) !important;
+    transform: translate(77%, -50%) !important; */
 
 }
 .btn{

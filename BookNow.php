@@ -39,16 +39,17 @@
         ?>
             <div class="col-sm-12 col-md-6 col-lg-4 imgcard">
                 <div class="card" style="width: 22rem; height: 30rem;">
-                    <img src="Photo/Room/<?php echo $row ['MainImg'] ?>" class="card-img-top" alt="">
+                    <img src="Photo/Room/<?php echo $row ['MainImg'] ;?>" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h3 class="card-title"><?php echo $row ['Label'] ?></h3>
-                        <p class="card-text"><?php echo $row ['Description'] ?></p>
-                        <div class="card-button"><a href="DetailRoom.php?id=<?php echo $row["IdRoom"] ?>" class="btn ">CHECK RATES</a></div>
+                        <h3 class="card-title"><?php echo $row ['Label'] ;?></h3>
+                        <p class="card-text"><?php echo $row ['Description'] ;?></p>
+                        <div class="card-button btn">
+                            <a href="DetailRoom.php?id=<?php echo $row['IdRoom'] ;?>">CHECK RATES</a>
+                        </div>
                     </div>
                 </div>
             </div>
         <?php  
-
                 }
             }
         ?>

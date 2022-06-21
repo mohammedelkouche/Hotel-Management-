@@ -2,9 +2,9 @@
     include 'Connection.php' ;
     error_reporting(0) ;
     session_start() ;
-    if (isset($_POST["LOGOUT"])) {
-        session_destroy();
-    }
+    // if (isset($_POST["LOGOUT"])) {
+    //     session_destroy();
+    // }
     // Registre Form
     if (isset($_POST["REGISTER"])){
             $FirstName = $_POST['FirstName'];
@@ -44,18 +44,18 @@
         if($result->num_rows > 0){
             $row = $result->fetch_assoc() ;
             $_SESSION['FirstName'] = $row['FirstName'] ;
-            // header("Location: Home.php") ;
-            echo " <script>alert('Woops! YOU ARE CONNECT NOW .')</script>" ;
+            // echo " <script>alert('Woops! YOU ARE CONNECT NOW .')</script>" ;
+            header("Location: Home.php") ;
         }else{
             echo " <script>alert('Woops! Email or Password is Wrong.')</script>"; 
         }
     }
-    // if (isset($_POST["LOGOUT"])){
-    //     if(isset($_SESSION['id'])){
-    //         unset($_SESSION['id']) ;
-    //         print_r($_SESSION['FirstName']);
-    //     }
-    // }
+    if (isset($_POST["LOGOUT"])){
+        if(isset($_SESSION['id'])){
+            unset($_SESSION['id']) ;
+            // print_r($_SESSION['FirstName']);
+        }
+    }
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,23 +78,32 @@
     ?>
     <div class="row ">
         <div id="div-formlogin" class="col-sm-12 col-md-12 col-lg-6">
-            <form action="" method="POST">
-                <h2>ALREADY A MEMBER</h2>
-                <fieldset>
-                    <div><input type="email" name = "Email" placeholder = "Email" " required></div>
-                    <div><input type="password" name = "Password" placeholder = "password"  required></div>
-                    <div>
-                        <!-- <input type="submit" name = "submit" value = "LOGIN" > -->
-                        <?php if(isset($_SESSION['id'])){ echo'
-                                 <input type="submit" name = "LOGOUT" value = "LOGOUT" > ';
-                           }else{ echo'
-                                <input type="submit" name = "submit" value = "LOGIN" >'
-                        ; } ?>
-                    </div>
+                        <?php // if(isset($_SESSION['id'])){?>  
+                            <!-- <form action="" method="POST">
+                                <h2>ALREADY A MEMBER</h2>
+                                <fieldset>
+                                    <div><input type="email" name = "Email" placeholder = "Email"  ></div>
+                                    <div><input type="password" name = "Password" placeholder = "password"  ></div>
+                                    <div>
+                                        <input type="submit" name = "LOGOUT" value = "LOGOUT" id="LOGOUT" > 
+                                    </div>
+                                </fieldset>
+                            </form>  -->
+                        <?php // ; }else{ ?>
+                            <form action="" method="POST">
+                                <h2>ALREADY A MEMBER</h2>
+                                <fieldset>
+                                    <div><input type="email" name = "Email" placeholder = "Email"  required></div>
+                                    <div><input type="password" name = "Password" placeholder = "password"  required></div>
+                                    <div>
+                                        <input type="submit" name = "submit" value = "LOGIN" id="LOGIN" >
+                                    </div>
+                                </fieldset>
+                            </form>  
+                            <?php // ; } ?>
                     <!-- <a class="link" href="login.php" style="text-decoration:none">login</a> -->
 
-                </fieldset>
-            </form>    
+                  
         </div>
         <div id="div-formregister" class="col-sm-12 col-md-12 col-lg-6"> 
             <form action="" method = "POST">
@@ -110,6 +119,7 @@
                 </fieldset>    
             </form>
         </div>
-    </div>    
+    </div> 
+    <script src="script.js"></script>   
 </body>
 </html>
