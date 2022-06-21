@@ -3,7 +3,7 @@
     include('Connection.php');
     $sql = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom
     FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom ";
-    // -- WHERE IdRoom = $Shop";
+    // -- WHERE room.IdRoom = $Shop";
     $query = "SELECT * FROM room WHERE IdRoom = $Shop " ;
     //   FROM  photo INNER JOIN room ON photo.$Shop = room.$Shop";
     $result = $conn->query($sql) ;
