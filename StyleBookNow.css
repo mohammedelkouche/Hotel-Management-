@@ -28,19 +28,24 @@ h3{
     text-align: center;
 }
 .card-button{
-    /* position: absolute;
+    position: absolute;
     bottom: 0px;
     text-align: center;
-    transform: translate(77%, -50%) !important; */
-
+    transform: translate(-50%, -50%) !important;
 }
 .btn{
     background-color:#ECCAB5 ;
     font-weight: bold;
     transition: 1s;
-    text-decoration: none;
 }
 .btn:hover{
     background-color: #000000;
+}
+.btn a{
+    text-decoration: none !important;
+    
+    color: #000000;;
+}
+a:hover{
     color: white;
 }

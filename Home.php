@@ -58,7 +58,9 @@
             <section id="visit-rooms">
                 <h1>Our selection of rooms and suites</h1>
                 <div>
-                    <button id="button-visit-rooms">VISIT THE ROOMS </button>
+                    <a href="BookNow.php"  id="button-visit-rooms" class="btn btn-lg" role="button">VISIT THE ROOMS</a>
+
+                    <!-- <button id="button-visit-rooms">VISIT THE ROOMS </button> -->
                 </div>
             </section>
             <section id="section-garden">

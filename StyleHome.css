@@ -79,7 +79,11 @@
     width: 310px;
     background-color: transparent;
     border: solid;
-    border-color: white ;
+    border-color: white ; 
+}
+#button-visit-rooms:hover{
+    opacity: 1 !important;
+    background-color:#ECCAB5 ;
 }
 #section-garden{
     background-color: #FFEEE3;

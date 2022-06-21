@@ -1,11 +1,9 @@
 <?php
     $Shop = $_GET["id"];
     include('Connection.php');
-    $sql = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom
-    FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom ";
-    // -- WHERE room.IdRoom = $Shop";
-    $query = "SELECT * FROM room WHERE IdRoom = $Shop " ;
-    //   FROM  photo INNER JOIN room ON photo.$Shop = room.$Shop";
+    $sql = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom , room.Size , room.OccupancyAdults , room.OccupancyChildren , room.PricePerNight , room.UniqueFeatures , room.Views , room.Beds , room.Bathroom , photo.Image1, photo.Image2
+            FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom 
+            WHERE room.IdRoom = $Shop";
     $result = $conn->query($sql) ;
 ?>
 <!DOCTYPE html>
@@ -32,11 +30,14 @@
         <img src="Photo/Room/<?php echo $row ['MainImg'] ?>" alt="">
     </div>
     <section id="section">
-        <div class="">
-        <!-- <div class="card-button"><a href="DetailRoom.php?id=<?php echo $row["IdRoom"] ;?>" class="btn">CHECK RATES</a></div> -->
-
-            <a href="" class="btn btn-primary btn-lg" role="button">CHECK RATES</a>
-        </div>
+            <form action="CartPage.php?id=<?php echo $row['IdRoom'];?>" method = "POST" >
+                <div class="">
+                <!-- <div id="button-addtocart"> -->
+                    <input type="submit" id="button-add" name="CHECK RATES<" value = "CHECK RATES">
+                <!-- </div> -->
+                    <!-- <a href="" name="CHECK RATES" class="btn btn-primary btn-lg" role="button">CHECK RATES</a> -->
+                </div>
+            </form>
         <div class="container-fluid">
             <ul>
                 <li>Label : <?php echo $row["Label"] ; ?></li>
@@ -44,17 +45,22 @@
                 <li>Size : <?php echo $row["Size"] ; ?></li>
                 <li>OccupancyAdults : <?php echo $row["OccupancyAdults"] ; ?></li>
                 <li>OccupancyChildren : <?php echo $row["OccupancyChildren"] ; ?></li>
-                <li>PricePerNight : <?php echo $row["PricePerNight"] ; ?></li>
+                <li>PricePerNight : <?php echo $row["PricePerNight"] ." DH" ; ?></li>
                 <li>UniqueFeatures : <?php echo $row["UniqueFeatures"] ; ?></li>
                 <li>Views : <?php echo $row["Views"] ; ?></li>
                 <li>Beds : <?php echo $row["Beds"] ; ?></li>
                 <li>Bathroom : <?php echo $row["Bathroom"] ; ?></li>
             </ul>
+        </div>
+        <div class="row  justify-content-around;" style="margin:auto; "> 
+
+            <div class="col-sm-12 col-md-6 col-lg-6 "><img src="Photo/Room/<?php echo $row ['Image1'] ?>" alt="" style="width: 30em; height: 22rem;"></div>
+            <div class="col-sm-12 col-md-6 col-lg-6 "><img src="Photo/Room/<?php echo $row ['Image2'] ?>" alt="" style="width: 30rem; height: 22rem;"></div>
+        </div>
         <?php  
             }
         ?>
             
-        </div>
     </section>
     <?php 
         include('Footer.php');
