@@ -1,6 +1,6 @@
 <?php
     include('Connection.php');
-    $sql = "SELECT room.Label , room.Description , photo.MainImg
+    $sql = "SELECT room.Label , room.Description , photo.MainImg ,room.IdRoom
     FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom" ;
     $result = $conn->query($sql) ;
 ?>
@@ -44,7 +44,7 @@
                         <h3 class="card-title"><?php echo $row ['Label'] ;?></h3>
                         <p class="card-text"><?php echo $row ['Description'] ;?></p>
                         <div class="card-button btn">
-                            <a href="DetailRoom.php?id=<?php echo $row['IdRoom'] ;?>">CHECK RATES</a>
+                            <a href="DetailRoom.php?id=<?php echo $row['IdRoom'];?>">CHECK RATES</a>
                         </div>
                     </div>
                 </div>

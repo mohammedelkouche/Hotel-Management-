@@ -1,10 +1,11 @@
 <?php
     $Shop = $_GET["id"];
     include('Connection.php');
-    $sql = "SELECT room.Label , room.Description , photo.MainImg
-    -- FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom 
-    FROM  photo INNER JOIN room ON photo.$Shop = room.$Shop
-    " ;
+    $sql = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom
+    FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom ";
+    // -- WHERE IdRoom = $Shop";
+    $query = "SELECT * FROM room WHERE IdRoom = $Shop " ;
+    //   FROM  photo INNER JOIN room ON photo.$Shop = room.$Shop";
     $result = $conn->query($sql) ;
 ?>
 <!DOCTYPE html>
