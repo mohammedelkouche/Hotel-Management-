@@ -1,7 +1,7 @@
 <?php
     session_start() ;
     include('Connection.php');
-    if(isset($_POST["add_to_cart"])){
+    if(isset($_POST["CHECK RATES<"])){
         // if($_SESSION["shopping cart"]){  
                 $id = $_GET['id'];
  
@@ -9,11 +9,11 @@
                     'rid' => $id ,
                 ) ;      
         // }  
-    //     echo "<pre>";
-    // print_r($_SESSION['cartArray']);
-    // echo "</pre>" ; 
+        
     }
-    
+    echo "<pre>";
+    print_r($_SESSION['cartArray']);
+    echo "</pre>" ; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,19 +32,19 @@
 <body>
     <?php 
     include('Nav.php');
-    foreach($_SESSION['cartArray'] as $key => $value ){
+    // foreach($_SESSION['cartArray'] as $key => $value ){
         
-        $query = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom , room.Size , room.OccupancyAdults , room.OccupancyChildren , room.PricePerNight , room.UniqueFeatures , room.Views , room.Beds , room.Bathroom , photo.Image1, photo.Image2
-                FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom 
-                WHERE room.IdRoom = $key";
-        $result = mysqli_query( $conn, $query) ;
-        foreach( $result as $worth){
+//$query = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom , room.Size , room.OccupancyAdults , room.OccupancyChildren , room.PricePerNight , room.UniqueFeatures , room.Views , room.Beds , room.Bathroom , photo.Image1, photo.Image2
+//FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom 
+         //       WHERE room.IdRoom = $key";
+//$result = mysqli_query( $conn, $query) ;
+      //  foreach( $result as $worth){
     ?>
     <div>
-        <div><img src="Photo/Room/<?php echo $worth ['MainImg'] ?>" style="width: 15em; height: 10rem;" alt="" ></div>
+        <div><img src="Photo/Room/<?php //echo $worth ['MainImg'] ?>" style="width: 15em; height: 10rem;" alt="" ></div>
         <div>
             <div>
-                <?php echo $worth["Label"] ; ?>
+                <?php// echo $worth["Label"] ; ?>
             </div>
             <div>
                 <!-- button ou a pour supprimer -->
@@ -54,8 +54,8 @@
     </div>
             
     <?php 
-        }
-    }
+      //  }
+    //}
         include('Footer.php');
     ?>
 </body>
