@@ -1,19 +1,24 @@
 <?php
     session_start() ;
     include('Connection.php');
-    if(isset($_POST["CHECK RATES<"])){
-        // if($_SESSION["shopping cart"]){  
+    if(isset($_POST["add_to_cart"])){
+        // if($_SESSION["CHECK RATES"]){  
                 $id = $_GET['id'];
  
-                $_SESSION['cartArray'][$id] = array(
-                    'rid' => $id ,
-                ) ;      
-        // }  
-        
+                $_SESSION['CHECK RATES'][$id] = array(
+                    'rid' => $id 
+                );
+
+        // }       
+    }
+    if(isset($_GET['remove'])){
+        $remove = $_GET['remove'] ;
+        unset($_SESSION['CHECK RATES'][$remove]);
+        header("location:CartPage.php");
     }
     echo "<pre>";
-    print_r($_SESSION['cartArray']);
-    echo "</pre>" ; 
+        print_r($_SESSION['CHECK RATES']);
+    echo "</pre>" ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,30 +37,35 @@
 <body>
     <?php 
     include('Nav.php');
-    // foreach($_SESSION['cartArray'] as $key => $value ){
+    foreach($_SESSION['CHECK RATES'] as $key => $value ){
         
-//$query = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom , room.Size , room.OccupancyAdults , room.OccupancyChildren , room.PricePerNight , room.UniqueFeatures , room.Views , room.Beds , room.Bathroom , photo.Image1, photo.Image2
-//FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom 
-         //       WHERE room.IdRoom = $key";
-//$result = mysqli_query( $conn, $query) ;
-      //  foreach( $result as $worth){
-    ?>
-    <div>
-        <div><img src="Photo/Room/<?php //echo $worth ['MainImg'] ?>" style="width: 15em; height: 10rem;" alt="" ></div>
-        <div>
+        $query = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom , room.Size , room.OccupancyAdults , room.OccupancyChildren , room.PricePerNight , room.UniqueFeatures , room.Views , room.Beds , room.Bathroom , photo.Image1, photo.Image2
+                FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom 
+                WHERE room.IdRoom = $key ";
+                $result = $conn->query( $query) ;
+        foreach( $result as $worth){
+        ?>
             <div>
-                <?php// echo $worth["Label"] ; ?>
+                <div><img src="Photo/Room/<?php echo $worth ['MainImg'] ?>" style="width: 15em; height: 10rem;" alt="" ></div>
+                <div class="d-flex ">
+                    <div>
+                        <?php echo $worth["Label"] ; ?>
+                    </div>
+                    <div>
+                    <a href='CartPage.php?remove=<?php echo $worth["IdRoom"] ?>' class="btn btn-primary btn-lg" role="button">DELET</a>
+                    <a href='CartPage.php?edit=<?php echo $worth["IdRoom"] ?>' class="btn btn-primary btn-lg" role="button">edit</a>
+
+                        <!-- <button>delet</button> -->
+
+                        <!-- button ou a pour supprimer -->
+                        <!-- button ou a pour modifier -->
+                    </div>
+                </div>
             </div>
-            <div>
-                <!-- button ou a pour supprimer -->
-                <!-- button ou a pour modifier -->
-            </div>
-        </div>
-    </div>
             
     <?php 
-      //  }
-    //}
+       }
+    }
         include('Footer.php');
     ?>
 </body>

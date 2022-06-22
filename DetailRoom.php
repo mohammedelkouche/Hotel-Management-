@@ -3,7 +3,7 @@
     include('Connection.php');
     $sql = "SELECT room.Label , room.Description , photo.MainImg , room.IdRoom , room.Size , room.OccupancyAdults , room.OccupancyChildren , room.PricePerNight , room.UniqueFeatures , room.Views , room.Beds , room.Bathroom , photo.Image1, photo.Image2
             FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom 
-            WHERE room.IdRoom = $Shop";
+            WHERE room.IdRoom = $Shop" ;
     $result = $conn->query($sql) ;
 ?>
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
             <form action="CartPage.php?id=<?php echo $row['IdRoom'];?>" method = "POST" >
                 <div class="">
                 <!-- <div id="button-addtocart"> -->
-                    <input type="submit" id="button-add" name="CHECK RATES<" value = "CHECK RATES">
+                    <input type="submit" id="button-add" name="add_to_cart" value = "CHECK RATES">
                 <!-- </div> -->
                     <!-- <a href="" name="CHECK RATES" class="btn btn-primary btn-lg" role="button">CHECK RATES</a> -->
                 </div>
