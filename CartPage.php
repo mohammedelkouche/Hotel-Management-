@@ -4,6 +4,7 @@
     if(isset($_POST["add_to_cart"])){
         // if($_SESSION["CHECK RATES"]){  
                 $id = $_GET['id'];
+                
  
                 $_SESSION['CHECK RATES'][$id] = array(
                     'rid' => $id 
