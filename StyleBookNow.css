@@ -1,4 +1,4 @@
-.check-All{
+/* .check-All{
     background-color: #ECCAB5;
     padding: 10px;
     width: 15%;
@@ -6,6 +6,17 @@
 }
 .check-All button{
     background-color: transparent;
+} */
+.check span{
+    background-color: #ECCAB5;
+    padding: 10px;
+    margin-bottom: 45px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+#search{
+    /* background-color: #000000; */
+    color: white;
 }
 .row{ 
     background-color: #ECCAB5;

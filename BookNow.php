@@ -3,6 +3,20 @@
     $sql = "SELECT room.Label , room.Description , photo.MainImg ,room.IdRoom
     FROM  photo INNER JOIN room ON photo.IdRoom = room.IdRoom" ;
     $result = $conn->query($sql) ;
+    // select room available 
+    $query = "SELECT * FROM room r
+    JOIN bookingroom br ON r.IdRoom = br.IdRoom
+    JOIN booking b ON b.Idbooking = br.IdBooking 
+    WHERE b.Idbooking IS NULL ";
+    $value = $conn->query($query) ;
+    // echo" <pre>" ;
+    // var_dump( $value ) ;
+    // echo "</pre>";
+    // $query = "SELECT * FROM room r
+    // JOIN bookingroom br ON r.IdRoom = br.IdRoom
+    // JOIN booking b ON b.Idbooking = br.IdBooking 
+    // WHERE ($zf)  NOT IN (b.Check-In, b.Check-Out)";
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,32 +40,79 @@
     <div id="div-header-img">
         <h1>Where the world comes to stay</h1>
     </div>
-    <div class="d-flex justify-content-evenly check">
-        <div class="check-All"><span>Check-in<i class="fa-solid fa-calendar-days"></i></span></div>
-        <div class="check-All"><span>Check-out<i class="fa-solid fa-calendar-days"></i></span></div>
-        <div class="check-All"><button>Sherch</button></div>
-    </div>
+    <form action="" method= "POST">
+        <div class="d-flex justify-content-evenly check">
+            <span>Check-In <input type="date" name="Check-In" ></span>
+            <span>Check-Out <input type="date" name="Check-Out"></span>
+            <span>Adult <input type="number" name="Adult"value="0" ></span>
+            <span>Children <input type="number" name="Children" value="0"></span>
+            <div><button id="search" type="submit" name="submit" class="btn btn-lg">Search</button></div>
+        </div>
+    </form>
+    
     <section id="section">
         <div class="row">
-        <?php  
-            if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()){
+            <?php 
+                if(isset($_Post["submit"])){
+                    if($value->num_rows > 0){
+                        while($row = $value->fetch_assoc()){
+                ?>
+                    <div class="col-sm-12 col-md-6 col-lg-4 imgcard">
+                        <div class="card" style="width: 22rem; height: 30rem;">
+                            <img src="Photo/Room/<?php echo $row['MainImg'] ;?>" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <h3 class="card-title"><?php echo $row['Label'] ;?></h3>
+                                <p class="card-text"><?php echo $row['Description'] ;?></p>
+                                <div class="card-button btn">
+                                    <a href="DetailRoom.php?id=<?php echo $row['IdRoom'];?>">CHECK RATES</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php  
+                        }
+                    }
+                }else{ 
+                    while($row = $result->fetch_assoc()){
+                ?>
+                    <div class="col-sm-12 col-md-6 col-lg-4 imgcard">
+                        <div class="card" style="width: 22rem; height: 30rem;">
+                            <img src="Photo/Room/<?php echo $row ['MainImg'] ;?>" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <h3 class="card-title"><?php echo $row ['Label'] ;?></h3>
+                                <p class="card-text"><?php echo $row ['Description'] ;?></p>
+                                <div class="card-button btn">
+                                    <a href="DetailRoom.php?id=<?php echo $row['IdRoom'];?>">CHECK RATES</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                
+                <?php
+                    }
+                }?>
+                
+                
+                
+        <?php 
+           // if($result->num_rows > 0){
+               // while($row = $result->fetch_assoc()){
         ?>
-            <div class="col-sm-12 col-md-6 col-lg-4 imgcard">
+            <!-- <div class="col-sm-12 col-md-6 col-lg-4 imgcard">
                 <div class="card" style="width: 22rem; height: 30rem;">
-                    <img src="Photo/Room/<?php echo $row ['MainImg'] ;?>" class="card-img-top" alt="">
+                    <img src="Photo/Room/<?php //echo $row ['MainImg'] ;?>" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h3 class="card-title"><?php echo $row ['Label'] ;?></h3>
-                        <p class="card-text"><?php echo $row ['Description'] ;?></p>
+                        <h3 class="card-title"><?php// echo $row ['Label'] ;?></h3>
+                        <p class="card-text"><?php// echo $row ['Description'] ;?></p>
                         <div class="card-button btn">
-                            <a href="DetailRoom.php?id=<?php echo $row['IdRoom'];?>">CHECK RATES</a>
+                            <a href="DetailRoom.php?id=<?php// echo $row['IdRoom'];?>">CHECK RATES</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         <?php  
-                }
-            }
+            //    }
+            //}
         ?>
             
         </div>

@@ -24,7 +24,7 @@
         <main>
             <div id="div-header-img">
                 <h1>Where the world comes to stay</h1>
-                <?php echo" welcom ". $_SESSION['FirstName'] ;
+                <?php //echo" welcom ". $_SESSION['FirstName'] ;
                         // print_r($_SESSION['FirstName']);
                         // var_dump($_SESSION['FirstName']);
                   ?>

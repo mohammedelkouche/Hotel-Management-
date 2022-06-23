@@ -18,6 +18,7 @@
     <!-- <link rel="stylesheet" href="StyleHome.css"> -->
     <link rel="stylesheet" href="StyleNav.css">
     <link rel="stylesheet" href="StyleFooter.css">
+    <link rel="stylesheet" href="StyleDetailRoom.css">
     <title>BOOKER</title>
 </head>
 <body>
@@ -27,34 +28,32 @@
             $row = $result->fetch_assoc()
         ?>
     <div id="div-header-img">
-        <img src="Photo/Room/<?php echo $row ['MainImg'] ?>" alt="">
+        <img id="detail-img" src="Photo/Room/<?php echo $row ['MainImg'] ?>" alt="">
     </div>
     <section id="section">
             <form action="CartPage.php?id=<?php echo $row['IdRoom'];?>" method = "POST" >
-                <div class="">
+                <div class="div-submit-btn">
                 <!-- <div id="button-addtocart"> -->
-                    <input type="submit" id="button-add" name="add_to_cart" value = "CHECK RATES">
+                    <input type="submit" id="button-add" name="add_to_cart" value = "CHECK RATES" class="btn btn-lg">
                 <!-- </div> -->
-                    <!-- <a href="" name="CHECK RATES" class="btn btn-primary btn-lg" role="button">CHECK RATES</a> -->
                 </div>
             </form>
-        <div class="container-fluid">
-            <ul>
-                <li>Label : <?php echo $row["Label"] ; ?></li>
-                <li>Description : <?php echo $row["Description"] ; ?></li>
-                <li>Size : <?php echo $row["Size"] ; ?></li>
-                <li>OccupancyAdults : <?php echo $row["OccupancyAdults"] ; ?></li>
-                <li>OccupancyChildren : <?php echo $row["OccupancyChildren"] ; ?></li>
-                <li>PricePerNight : <?php echo $row["PricePerNight"] ." DH" ; ?></li>
-                <li>UniqueFeatures : <?php echo $row["UniqueFeatures"] ; ?></li>
-                <li>Views : <?php echo $row["Views"] ; ?></li>
-                <li>Beds : <?php echo $row["Beds"] ; ?></li>
-                <li>Bathroom : <?php echo $row["Bathroom"] ; ?></li>
+        <div  class="container-fluid ">
+            <ul >
+                <li><span>Label</span>  : <?php echo $row["Label"] ; ?></li>
+                <li><span>Description</span> : <?php echo $row["Description"] ; ?></li>
+                <li><span>Size</span> : <?php echo $row["Size"] ; ?></li>
+                <li><span>OccupancyAdults</span> : <?php echo $row["OccupancyAdults"] ; ?></li>
+                <li><span>OccupancyChildren</span> : <?php echo $row["OccupancyChildren"] ; ?></li>
+                <li><span>PricePerNight</span> : <?php echo $row["PricePerNight"] ." DH" ; ?></li>
+                <li><span>UniqueFeatures</span> : <?php echo $row["UniqueFeatures"] ; ?></li>
+                <li><span>Views</span> : <?php echo $row["Views"] ; ?></li>
+                <li><span>Beds</span> : <?php echo $row["Beds"] ; ?></li>
+                <li><span>Bathroom</span> : <?php echo $row["Bathroom"] ; ?></li>
             </ul>
         </div>
-        <div class="row  justify-content-around;" style="margin:auto; "> 
-
-            <div class="col-sm-12 col-md-6 col-lg-6 "><img src="Photo/Room/<?php echo $row ['Image1'] ?>" alt="" style="width: 30em; height: 22rem;"></div>
+        <div class="row d-flex gallery"  > 
+            <div class="col-sm-12 col-md-6 col-lg-6 rounded-2 "><img  src="Photo/Room/<?php echo $row ['Image1'] ?>" alt="" style="width: 30em; height: 22rem;"></div>
             <div class="col-sm-12 col-md-6 col-lg-6 "><img src="Photo/Room/<?php echo $row ['Image2'] ?>" alt="" style="width: 30rem; height: 22rem;"></div>
         </div>
         <?php  

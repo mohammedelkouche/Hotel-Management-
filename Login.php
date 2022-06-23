@@ -90,7 +90,7 @@
                                 </fieldset>
                             </form>  -->
                         <?php // ; }else{ ?>
-                            <form action="" method="POST">
+                            <form id="myForm" action="" method="POST">
                                 <h2>ALREADY A MEMBER</h2>
                                 <fieldset>
                                     <div><input type="email" name = "Email" placeholder = "Email"  required></div>
