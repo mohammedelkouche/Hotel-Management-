@@ -7,7 +7,7 @@
     $query = "SELECT * FROM room r
     JOIN bookingroom br ON r.IdRoom = br.IdRoom
     JOIN booking b ON b.Idbooking = br.IdBooking 
-    WHERE b.Idbooking IS NULL ";
+    WHERE b.Idbooking IS NOT NULL ";
     $value = $conn->query($query) ;
     // echo" <pre>" ;
     // var_dump( $value ) ;
@@ -16,7 +16,9 @@
     // JOIN bookingroom br ON r.IdRoom = br.IdRoom
     // JOIN booking b ON b.Idbooking = br.IdBooking 
     // WHERE ($zf)  NOT IN (b.Check-In, b.Check-Out)";
-    
+
+    // OR (b.checkout >= DATE_GIVEN_AS_CHECKIN_INPUT AND b.checkin >= DATE_GIVEN_AS_CHECKOUT_INPUT)
+    // OR (b.checkout <= DATE_GIVEN_AS_CHECKIN_INPUT AND b.checkout <= DATE_GIVEN_AS_CHECKOUT_INPUT)
 ?>
 <!DOCTYPE html>
 <html lang="en">
