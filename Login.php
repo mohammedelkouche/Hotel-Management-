@@ -76,6 +76,11 @@
     <?php 
         include('Nav.php');
     ?>
+    <div id="image-acount">
+        <h1>ACCOUNT</h1>
+
+        <!-- <img src=".Photo/image account.png" alt=""> -->
+    </div>
     <div class="row ">
         <div id="div-formlogin" class="col-sm-12 col-md-12 col-lg-6">
                         <?php // if(isset($_SESSION['id'])){?>  
@@ -120,6 +125,9 @@
             </form>
         </div>
     </div> 
-    <script src="script.js"></script>   
+    <script src="script.js"></script>  
+    <?php 
+        include('Footer.php');
+    ?> 
 </body>
 </html>

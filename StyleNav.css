@@ -3,4 +3,15 @@
 }
 .navbar-brand img{
     width: 40%;
+}    
+.collapse{
+    margin-left: 356px;
 }
+.collapse a{
+    color: #000000 !important;
+    font-weight: bold;
+    font-size: 19px;
+}
+/* .collapse a:hover{
+    color: white !important;
+} */
