@@ -9,6 +9,9 @@
     JOIN booking b ON b.Idbooking = br.IdBooking 
     WHERE b.Idbooking IS NOT NULL ";
     $value = $conn->query($query) ;
+    
+    // sherch for room available  whis query
+
     // echo" <pre>" ;
     // var_dump( $value ) ;
     // echo "</pre>";
